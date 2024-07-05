@@ -250,39 +250,44 @@ const attackMissed = `⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀�
 ⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠤⢴⣶⣾⣿⣿⣿⣿⣶⠤⠄⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀`;
 
+let name;
+let confirm;
+let mastery;
+let player;
+
 function enterAnyKey() {
   rls.question(`\n(Enter any key to continue)\n`);
 }
 
 let knight = {
-  health: [100, 100],
+  health: [80, 80],
   type: "physical",
   attackType: ["rusty sword", 10],
   evasion: 0,
   counter: 0,
-  inventory: [],
+  inventory: ["resurrection ankh"],
   enemiesDefeated: 0,
   atkImage: knightAsciiAtk,
 };
 
 let assassin = {
-  health: [80, 80],
+  health: [70, 70],
   type: "physical",
-  attackType: ["iron dagger", 10],
+  attackType: ["dual rusty dagger", 10],
   evasion: 2,
   counter: 0,
-  inventory: [],
+  inventory: ["resurrection ankh"],
   enemiesDefeated: 0,
   atkImage: assassinAsciiAtk,
 };
 
 let wizard = {
-  health: [70, 70],
+  health: [65, 65],
   type: "magic",
   attackType: ["wind blast", 30],
   evasion: 0,
   counter: 0,
-  inventory: [],
+  inventory: ["resurrection ankh"],
   enemiesDefeated: 0,
   atkImage: wizardAsciiAtk,
 };
@@ -301,7 +306,7 @@ let wolfFeral = {
   name: "feral wolf",
   type: "physical",
   health: [35, 35],
-  attackType: ["bite", 15],
+  attackType: ["bite", 10],
   evasion: 2,
   counter: 0,
   atkImage: wolfAsciiAtk,
@@ -309,13 +314,43 @@ let wolfFeral = {
 
 console.clear();
 
-console.log(`...
-You're finally awake! You were out for some time...
-...`);
-let name;
-let confirm;
-let mastery;
-let player;
+console.log(`
+            ****************************************************************************
+            *                                                                          *
+            *                            C H R O N I C L E S                           *
+            *                                                                          *
+            *                                    O F                                   *
+            *                                                                          *
+            *                                A E T H E L                               *
+            *                                                                          *
+            ****************************************************************************
+  `);
+
+console.log(`
+                                               ______
+                                            .-"      "-.
+                                           /            \\
+                                          |              |
+                                          |,  .-.  .-.  ,|
+                                          | )(__/  \\__)( |
+                                          |/     /\\     \\|
+                                (@_       (_     ^^     _)
+                                 ) \\_______\\__|IIIIII|__/__________________________
+                           (_)@8@8{}<________|-\IIIIII/-|___________________________>
+                                 )_/        \\          /
+                                (@           \`--------\` 
+`);
+
+enterAnyKey();
+console.clear();
+
+console.log(`
+       ...
+You're finally awake! 
+
+You were out for some time...`);
+enterAnyKey();
+console.clear();
 
 do {
   name = rls.question("\nTell me, how should I call you? \n");
@@ -340,6 +375,7 @@ do {
       `\nWhat best describes your fighting style, ${name}?  Are you a Knight, Assassin or Wizard? \n`
     )
     .toLowerCase();
+  console.clear();
   if (mastery === "knight") {
     console.log(knightAscii);
     console.log(
@@ -359,6 +395,7 @@ do {
       However their focus on offense comes at the cost of defense.`
     );
   } else {
+    console.clear();
     console.log(`\nIncorrent input. Please select knight, assassin or wizard.`);
   }
   if (mastery === "knight" || mastery === "wizard" || mastery === "assassin") {
@@ -385,7 +422,7 @@ console.log(
 );
 console.log(`
         ***************************************************************************
-        *                                                                         *                         
+        *                                                                         *
         *                            C H A P T E R  1:                            *
         *                                                                         *
         *                           T H E    W O O D S                            *
@@ -418,15 +455,15 @@ console.log(
   `\nYou look around and there's forest everywhere. You follow a path which leads to a cabin...`
 );
 console.log(`
-   _              /\\\`\\           (       /\\\`\\
-  (_)      /\\\`\\  // \\\\           ))     // \\\\
-          // \\\\  // \\\\  /\\\`\\_____||     // \\\\
-          // \\\\  // \\\\ // /       \\  /\\\`\\ // \\\\
-          // \\\\  // \\\\ ///_________\\// \\\\// \\\\
-          // \\\\  // \\\\ // |-[+]---| // \\\\// \\\\
-          // \\\\  // \\\\ // |-------| // \\\\// \\\\
-_____,....-----'------'-----''-------'---'----'--
-\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`
+                _              /\\\`\\           (       /\\\`\\
+               (_)      /\\\`\\  // \\\\           ))     // \\\\
+                       // \\\\  // \\\\  /\\\`\\_____||     // \\\\
+                       // \\\\  // \\\\ // /       \\  /\\\`\\ // \\\\
+                       // \\\\  // \\\\ ///_________\\// \\\\// \\\\
+                       // \\\\  // \\\\ // |-[+]---| // \\\\// \\\\
+                       // \\\\  // \\\\ // |-------| // \\\\// \\\\
+             _____,....-----'------'-----''-------'---'----'--
+             \`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`~\`
 `);
 
 let decision;
@@ -443,19 +480,20 @@ let isEnemyDefeated = false;
 let enemy = structuredClone(skeleton);
 
 function attack(enemyObject) {
+  // potion use
   this.counter++;
   if (
     (this.type === "physical" && this.counter >= 1) ||
     (this.type === "magic" && this.counter >= 2)
   ) {
     let attackProbability = Math.floor(Math.random() * 10) + 1;
+    if (this.type === "physical") this.counter--;
+    if (this.type === "magic") this.counter -= 2;
     if (attackProbability >= 2 + enemyObject.evasion) {
-      if (this.type === "physical") this.counter--;
-      if (this.type === "magic") this.counter -= 2;
       enemyObject.health[0] -= this.attackType[1];
       console.log(this.atkImage);
       console.log(
-        `${this.name} attacked the ${enemyObject.name} with ${this.attackType[0]}, dealing ${this.attackType[1]} damage.`
+        `${this.name} attacked ${enemyObject.name} with ${this.attackType[0]}, dealing ${this.attackType[1]} damage.`
       );
       enemyObject.health[0] <= 0
         ? console.log(`${enemyObject.name} has 0 health left.`)
@@ -473,9 +511,25 @@ function attack(enemyObject) {
 }
 
 function battleSequence() {
+  isEnemyDefeated = false;
   while (player.health[0] > 0 && enemy.health[0] > 0) {
     let battleOrRun;
     do {
+      if (
+        player.health[0] <= player.health[1] / 3 &&
+        player.inventory.includes("health potion")
+      ) {
+        console.log(`W A R N I N G:   L O W    H E A L T H
+          (${player.health[0]}/${player.health[1]})`);
+        let usePotionDecision = rls
+          .question(
+            `You have a HEALTH POTION (30hp) in your inventory. Use it now? (y/n)\n`
+          )
+          .toLowerCase();
+        if (usePotionDecision == "y") {
+          usePotion();
+        }
+      }
       battleOrRun = rls
         .question(`\nWhat do you do? Attack or try to run? (attack/run) \n`)
         .toLowerCase();
@@ -485,6 +539,8 @@ function battleSequence() {
     if (battleOrRun === "attack") {
       player.attack(enemy);
       if (enemy.health[0] <= 0) {
+        enterAnyKey();
+        console.clear();
         console.log(`
             88                                                       
             ""              ,d                                       
@@ -497,27 +553,39 @@ function battleSequence() {
                                                             d8'      
                                                            d8'       
 `);
-        console.log(
-          `\n********************** VICTORY **********************\n`
-        );
         console.log(`${enemy.name} has been DEFEATED!`);
+        console.log(
+          `\nHealth check: (${player.health[0]}/${player.health[1]})`
+        );
         enterAnyKey();
         console.clear();
         player.enemiesDefeated++; // if two, level up
+        if (player.enemiesDefeated >= 3) {
+          player.enemiesDefeated = 0;
+          player.health[1] += 5;
+          player.health[0] = player.health[1];
+          console.log(`
+            * * * * * * * * * * * *             
+            *  L E V E L   U P !  *
+            * * * * * * * * * * * *             
+
+            -> Health restored <-
+            -> Max Health +5   <-
+            (${player.health[0]} / ${player.health[1]})`);
+        }
         isEnemyDefeated = true;
         return;
       }
     } else if (battleOrRun === "run") {
       player.counter = 0;
       let probability = Math.floor(Math.random() * 10) + 1;
-      if (probability > 5) {
+      if (probability > 5 - enemy.evasion / 2) {
         console.log(`You successfully ran away from the enemy.`);
         enterAnyKey();
         console.clear();
         return;
       } else {
         console.log(`The enemy doesn't allow you to escape.`);
-        // enemy.attack(player); away?
       }
     }
 
@@ -527,21 +595,110 @@ function battleSequence() {
     console.clear();
     enemy.attack(player);
     if (player.health[0] <= 0) {
-      console.log(`
-         88                               88           
-         88                         ,d    88           
-         88                         88    88           
- ,adPPYb,88  ,adPPYba, ,adPPYYba, MM88MMM 88,dPPYba,   
+      console.clear();
+      defeatOrDeath();
+      return;
+    }
+  }
+}
+
+function defeatOrDeath() {
+  console.log(`
+    88                               88           
+    88                         ,d    88           
+    88                         88    88           
+,adPPYb,88  ,adPPYba, ,adPPYYba, MM88MMM 88,dPPYba,   
 a8"    \`Y88 a8P_____88 ""     \`Y8   88    88P'    "8a  
 8b       88 8PP""""""" ,adPPPPP88   88    88       88  
 "8a,   ,d88 "8b,   ,aa 88,    ,88   88,   88       88  
- \`"8bbdP"Y8  \`"Ybbd8"' \`"8bbdP"Y8   "Y888 88       88  
+\`"8bbdP"Y8  \`"Ybbd8"' \`"8bbdP"Y8   "Y888 88       88  
 `);
-      console.log(`********************** YOU DIED **********************`);
-      enterAnyKey();
-      console.clear();
-      return;
-    }
+  console.log(`********************** YOU DIED **********************`);
+  rls.question(`(Enter any key to continue...)`);
+  console.log(` 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    `); // alternative to console.clear()
+  if (player.inventory.includes("resurrection ankh")) {
+    console.log(`
+        ...
+    What's this???
+        ...`);
+    console.log(`
+
+       .d88b.
+       88  88
+       \`8bd8'
+        \`88'
+    g888SEAL888g
+         88
+         88
+         88
+        d88b
+       d8888b
+`);
+    player.health[0] = player.health[1];
+    console.log(`The RESURRECTION ANKH from your inventory triggers!
+
+  You are brought back to life with full health! (${player.health[0]}/${player.health[1]})
+  
+  The bright aura has scared away the enemy!
+  
+  You are safe again.`);
+    player.inventory.splice(player.inventory.indexOf("resurrection ankhh"), 1);
+  } else {
+    console.log(`Your adventure ends here, traveler.`);
+    console.log(`
+              ...
+             ;::::;
+           ;::::; :;
+         ;:::::'   ;
+        ;:::::;     ;
+       ,:::::'       ;           OOO\\
+       ::::::;       ;          OOOOO\\
+       ;:::::;       ;         OOOOOOOO
+      ,;::::::;     ;'         / OOOOOOO
+    ;:::::::::\`. ,,,;.        /  / DOOOOOO
+  .';:::::::::::::::::;,     /  /     DOOOO
+ ,::::::;::::::;;;;::::;,   /  /        DOOO
+;\`::::::\`'::::::;;;::::: ,#/  /          DOOO
+:\`:::::::\`;::::::;;::: ;::#  /            DOOO
+::\`:::::::\`;:::::::: ;::::# /              DOO
+\`:\`:::::::\`;:::::: ;::::::#/               DOO
+ :::\`:::::::\`;; ;:::::::::##                OO
+ ::::\`:::::::\`;::::::::;:::#                OO
+ \`:::::\`::::::::::::;'\`:;::#                O
+  \`:::::\`::::::::;' /  / \`:#                  
+   ::::::\`:::::;'  /  /   \`#
+`);
+    rls.question(`TRY AGAIN?`);
+    process.exit();
   }
 }
 
@@ -588,22 +745,25 @@ if (isEnemyDefeated === true) {
   do {
     decision = rls
       .question(
-        `There's a cosy-looking fireplace still lit. You think to yourself: "a quick rest by the fire doesn't seem like a bad idea..." \nDo you rest next to the fireplace or exit the cabin? (rest/exit)\n`
+        `There's a cosy-looking fireplace still lit. 
+        You think to yourself: "a quick rest by the fire doesn't seem like a bad idea..." 
+        \nDo you rest next to the fireplace or exit the cabin? (rest/exit)\n`
       )
       .toLowerCase();
     console.clear();
-  } while (decision !== ("rest" && "exit"));
+  } while (decision !== "rest" && decision !== "exit");
 
   if (decision === "rest") {
     player.health[0] = player.health[1];
     console.log(
       `\nThe warmth of the fire and resting after the tough battle replenish your energy. You are again at full health!`
     );
+    enterAnyKey();
+    console.clear();
   }
 }
 
 // if not enter or run continue out of the cabin
-console.log(`\nHealth check: (${player.health[0]}/${player.health[1]})`);
 
 console.log(`
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢛⡿⠛⠛⠛⠛⠛⠛⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
@@ -646,11 +806,15 @@ if (decisionWalk === "investigate") {
   console.clear();
   do {
     console.clear();
-    decisionWalk2 = rls.question(`\nYou realize how dark it is in the woods... 
+    decisionWalk2 = rls
+      .question(
+        `\nYou realize how dark it is in the woods... 
 
 And in distance you see only a reflection of eyes staring in your direction...
 
-Do you investigate further or walk away? (investigate/walk)\n`);
+Do you investigate further or walk away? (investigate/walk)\n`
+      )
+      .toLowerCase();
   } while (decisionWalk2 !== "investigate" && decisionWalk2 !== "walk");
 
   console.clear();
@@ -662,6 +826,284 @@ The WOLF locks his eyes on you...
 There's no escape now - prepare for battle!`);
   battleSequence();
 }
-function crossway() {
-  // crossroads
+
+if (isEnemyDefeated == true) {
+  decisionWalk = "";
+  console.log(`Previously a living skeleton attacked me, now a feral wolf... 
+
+what could be causing this disturbance in the land?`);
+  do {
+    decisionWalk = rls
+      .question(`\nInspect the wolf's corpse or go forward? (inspect/walk) \n`)
+      .toLowerCase();
+    console.clear();
+  } while (decisionWalk !== "inspect" && decisionWalk !== "walk");
+  if (decisionWalk == "inspect") {
+    console.log(`You notice the wolf has a colar with a vial attached to it. `);
+    player.inventory.push("health potion");
+    console.log(`
+   _         
+ .'~'. 
+ : h : 
+ :___:
+`);
+    console.log(`HEALTH POTION (30hp) has been added to your inventory!`);
+    do {
+      decision = false;
+      decision = rls
+        .question(
+          `Your health is at (${player.health[0]}/${player.health[1]}). 
+        Do you want to use the potion now or save it for later? (use/save)\n`
+        )
+        .toLowerCase();
+      if (decision == "use") {
+        usePotion();
+      }
+    } while (decision !== "use" && decision !== "save");
+    enterAnyKey();
+    console.clear();
+    console.log(
+      `Why would a wolf have a colar? 
+      
+      Was this once someone's dog? 
+      
+             Has it mutated into a monster?`
+    );
+    enterAnyKey();
+  }
 }
+
+function usePotion() {
+  player.inventory.splice(player.inventory.indexOf("health potion"), 1);
+  player.health[0] += 30;
+  player.health[0] > player.health[1]
+    ? (player.health[0] = player.health[1])
+    : player.health[0];
+  console.log(`Your health is at (${player.health[0]}/${player.health[1]}).`);
+}
+
+let isCemetaryComplete = false;
+function crossway() {
+  decision = false;
+  console.clear();
+  console.log(`You arrive to a path crossing`);
+  console.log(`
+⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠻⠿⢿⣿⣿⣿⣿⡿⠿⠟⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠀⠀⠀⢸⡇⢸⡇⠀⠀⠀⣀⣴⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣷⣄⠀⠀⠈⠛⢿⣿⣿⣿⣿⣶⣾⡇⢸⣷⣶⣿⣿⣿⣿⡿⠛⠁⠀⠀⣠⣾⣿
+⣿⣿⣿⣷⣄⠀⠀⠀⠈⠻⢿⣿⣿⣿⡇⢸⣿⣿⣿⡿⠟⠁⠀⠀⠀⣠⣾⣿⣿⣿
+⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠙⠻⣿⣷⣾⣿⠟⠋⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠈⠛⠛⠁⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣯⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣽⣿⣿⣿⣿⣿
+    `);
+  console.log(`Upon close inspection, you notice the signs:
+    <= CEMETARY      WILDLIFE SANCTUARY =>`);
+  enterAnyKey();
+  if (!player.inventory.includes("pendant")) {
+    console.clear();
+    console.log(
+      `Before you decide where to go next, you notice a pendant on the floor.
+      
+      The pendant has initials "R.B." carved in.`
+    ); // REGINA BLACKWOOD
+    console.log(`
+                o--o--=g=--o--o     
+               /      .'       \\
+               o      '.       o
+                \\             /
+                 o           o
+                  \\         /
+                   o       o
+                    \\     /
+                     o   o
+                      \\_/
+                       =
+                      .^.
+                     '   '
+                     '. .'
+                       !   
+      `);
+    console.log(`\n The pendant has been added to your inventory`);
+    player.inventory.push("pendant");
+    enterAnyKey();
+  }
+  do {
+    console.clear();
+    decision = rls
+      .question(
+        `\”Do you continue your way LEFT (GRAVEYARD) or RIGHT (WILDLIFE SANCTUARY)? (left/right)\n`
+      )
+      .toLowerCase();
+  } while (decision !== "left" && decision !== "right");
+
+  if (decision == "left") {
+    goLeft();
+  }
+  if (decision == "right") {
+    goRight();
+  }
+}
+
+function goRight() {
+  console.log(`
+    ...
+    
+    You selected the right path and are going towards the wildlife sanctuary...
+    ...`);
+  enterAnyKey();
+  console.clear();
+
+  if (isCemetaryComplete == false) {
+    console.log(
+      `However as soon as you make a few steps forward,
+      a tornado is formed - preventing you to continue!`
+    );
+    console.log(`
+      ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⣠⣤⠶⢛⣉⣠⣤⣶⠶⠾⠿⠿⠿⠿⠿⠿⠿⠶⣶⣤⣄⣀⠀⠀⠀⠀
+⠀⢀⣴⡿⢋⣥⣾⡿⠛⠉⣀⣀⣤⣤⣤⣤⣤⣤⣄⣀⡀⠀⠀⠉⠻⣿⣿⣦⡀⠀
+⠀⣾⣿⣵⣿⣿⣫⣴⠾⠛⠋⠉⠉⠀⠀⠀⠀⠉⠉⠉⠛⠻⠷⣦⣄⣿⣿⣿⣧⠀
+⠀⢻⣿⣿⣿⣿⣏⠁⠀⢀⣀⣤⣴⡶⠶⠶⠶⠶⠶⣶⣤⣤⣀⣤⣿⡿⣿⣿⠇⠀
+⠀⠀⠙⠻⢿⣿⣿⣷⣶⣿⣏⣁⣀⣀⣀⣀⣀⣠⣤⣴⣶⡿⠟⢋⣡⣾⡿⠋⠀⠀
+⠀⠀⠀⠀⠀⠀⠉⠙⠛⠛⠛⠿⠿⠿⠛⠛⠛⠛⠉⣉⣠⣴⠾⠟⠋⠁⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠈⠑⠶⣤⣄⣀⣀⠀⠀⠒⠒⠂⠉⠉⠉⢀⣀⣠⣤⠖⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⡀⠀⠉⠙⠛⠻⠿⠿⢿⣿⣿⣿⣿⣿⠿⠋⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⠶⣶⣶⣿⣿⠿⠿⠛⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠐⣦⣤⣄⣀⣀⣠⣤⣤⡶⠚⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠛⠛⠋⢉⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢠⣈⠙⠻⠿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣶⣶⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+      `);
+    enterAnyKey();
+    console.log(`How is that possible?? It definitely stinks of magic!`);
+    console.log(`You look around and in the distance you see a silhouette...`);
+    rls.question(`(Enter any key to continue)`);
+    console.clear();
+    console.log(`
+                //
+                //
+              _ //
+           .' . // '.
+          '_ '_\\/_'  \`_
+          .  . \\\\  .  .
+         .==. \` \\\\' .'
+  .\\|   //##\\\\   \\,
+  \\_'\`._\\\\__//_.'\`; 
+    \`.__      __,' \\\\
+        |    |      \\\\
+        |    |       \`
+        |    |
+        |    |
+        |____|
+       =='  '==
+`);
+    console.log(
+      `You identify the caster of the tornado! But he's too far away and you cannot reach them...`
+    );
+    console.log(`We don't have a choice, we need to go back...`);
+    crossway();
+  }
+}
+
+function goLeft() {
+  console.log(`
+...
+
+You selected the left path and are going towards the graveyard...
+...
+    `);
+  enterAnyKey();
+  console.clear();
+
+  if (isCemetaryComplete == false) {
+    console.log(`
+      ***************************************************************************
+      *                                                                         *
+      *                            C H A P T E R  2:                            *
+      *                                                                         *
+      *                        T H E    G R A V E Y A R D                       *
+      *                                                                         *
+      ***************************************************************************
+`);
+    console.log(`
+                                  _____  _____
+                                <     \`/     |
+                                 >          (
+                                |   _     _  |
+                                |  |_) | |_) |
+                                |  | \\ | |   |
+                                |            |
+                 ______.______%_|            |__________  _____
+               _/                                       \\|     |
+              |               O U R  B E L O V E D              <
+              |_____.-._________              ____/|___________|
+                                | * 05/07/02 |
+                                | + 19/10/57 |
+                                |            |
+                                |            |
+                                |   _        <
+                                |__/         |
+                                 / \`--.      |
+                               %|            |%
+                           |/.%%|          -< @%%%
+                           \`\\%\\\`@|     v      |@@%@%%    - mfj
+                         .%%%@@@|%    |    % @@@%%@%%%%
+                    _.%%%%%%@@@@@@%%_/%\\_%@@%%@@@@@@@%%%%%%
+      `);
+    enterAnyKey();
+    console.clear();
+  }
+  console.log(`
+                  _  /)
+                 mo / )
+                 |/)\)
+                  /\\_
+                  \\__|=
+                 (    )
+                 __)(__
+_________+______/      \\______+__________
+  __--   |       R.I.P.       |-_-- __
+_-- -    | ___ __________ ___ |
+-_-- __  || | | | {|    /| | || __---  -_
+ --__-   || | | | {|   /|| | ||--        -
+         || | | | {|  /||| | ||__--
+ __-- -__|| | | | {| |}||| | ||--   __--
+         ||_|_|_|_{| |}|||_|_||  -__
+ --__-  -|| | | | {& |}||/ | ||---   __--
+         || | | | {| |}|/| | ||-__
+--   __--|| | | | {| |}/|| | ||__-- -__
+  --     || | | | {| &}||| | ||   __
+---   __-|| | | | {| |}||| | ||_---__-  --
+ -  -_   || | | | {| |}||| | || --
+ __      || | | | {| |}||| | ||_--__-   _---
+_________||_|_|_|_{| |}|||_|_||______________
+                     |}|/
+                     |}/
+                     |/
+`);
+  console.log(`You arrive to the cemetary gate.
+    
+You feel a dark aura surrounding you...`);
+  enterAnyKey();
+  console.clear();
+  enemy = structuredClone(skeleton);
+  enemy.attack = attack;
+  console.log(
+    `As you enter through the gate... a skeleton rushes towards you!`,
+    skeletonAscii,
+    `You enter battle!`
+  );
+  battleSequence();
+  //if (not have it) -> upgrade weapon/attack (corrupted sword, dagger, blood magic)
+}
+
+crossway();
