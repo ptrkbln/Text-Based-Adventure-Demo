@@ -983,33 +983,12 @@ function goRight() {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣶⣶⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
       `);
-    enterAnyKey();
     console.log(`How is that possible?? It definitely stinks of magic!`);
     console.log(`You look around and in the distance you see a silhouette...`);
-    rls.question(`(Enter any key to continue)`);
-    console.clear();
-    console.log(`
-                //
-                //
-              _ //
-           .' . // '.
-          '_ '_\\/_'  \`_
-          .  . \\\\  .  .
-         .==. \` \\\\' .'
-  .\\|   //##\\\\   \\,
-  \\_'\`._\\\\__//_.'\`; 
-    \`.__      __,' \\\\
-        |    |      \\\\
-        |    |       \`
-        |    |
-        |    |
-        |____|
-       =='  '==
-`);
     console.log(
-      `You identify the caster of the tornado! But he's too far away and you cannot reach them...`
+      `However for now we don't have a choice, we need to go back...`
     );
-    console.log(`We don't have a choice, we need to go back...`);
+    enterAnyKey();
     crossway();
   }
 }
@@ -1103,7 +1082,123 @@ You feel a dark aura surrounding you...`);
     `You enter battle!`
   );
   battleSequence();
-  //if (not have it) -> upgrade weapon/attack (corrupted sword, dagger, blood magic)
+
+  console.log(`You continue your way forward - which leads you to a church.`);
+  console.log(`
+                  _|_
+                   |
+                  / \\\\
+                 //_\\\\\\\\
+                //(_)\\\\\\\\
+                 |/^\\\\| 
+       ,%%%%     // \\\\\\\\    ,@@@@@@@,
+     ,%%%%/%%%  //   \\\\\\\\ ,@@@\\\\@@@@/@@,
+ @@@%%%\\\\%%//%%%// === \\\\\\\\ @@\\\\@@@/@@@@@
+@@@@%%%%\\\\%%%%%// =-=-= \\\\\\\\@@@@\\\\@@@@@@;%#####,
+@@@@%%%\\\\%%/%%//   ===   \\\\\\\\@@@@@@/@@@%%%######,
+@@@@@%%%%/%%//|         |\\\\\\\\@\\\\\\\\//@@%%%%%%#/####
+'@@@@@%%\\\\/%~ |         | ~ @|| %\\\\\\\\//%%%#####;
+  @@\\\\//@||   |  __ __  |    || %%||%%'######
+   '@||  ||   | |  |  | |    ||   ||##\\\\\\\\//####
+     ||  ||   | | -|- | |    ||   ||'#||###'
+     ||  ||   |_|__|__|_|    ||   ||  ||
+     ||  ||_/\\  =======  \`\\\\__||_._||  ||
+   __||_/\\      =======            \`\\\\_||___
+`);
+  enterAnyKey();
+  console.clear();
+  console.log(`The church seems to be empty and abandoned.`);
+  console.log(
+    `However as you inspect further, you notice something on the church altar.`
+  );
+  decision = null;
+  if (mastery == "knight") {
+    console.log(`
+                         .                                               
+                     /   ))     |\\\\         )               ).           
+               c--. (\\\\  ( \`.    / )  (\\\\   ( \`.     ).     ( (           
+               | |   ))  ) )   ( (   \`.\`.  ) )    ( (      ) )          
+               | |  ( ( / _..----.._  ) | ( ( _..----.._  ( (           
+ ,-.           | |---) V.'-------.. \`-. )-/.-' ..------ \`--) \\\\._        
+ | /===========| |  (   |      ) ( \`\\\`-.\\\`\\/'.-''           (   ) \`\`-._   
+ | | / / / / / | |--------------------->  <-------------------------_>=-
+ | \\\\===========| |                 ..-'./\\\\.\\\`-..                _,,-'    
+ \`-'           | |-------._------''_.-'----\\\`-._\\\`\\\`------_.-----'         
+               | |         \`\`----''            \`\`----''                  
+               | |                                                       
+               c--\`
+`);
+    console.log(`It seems to be a sword, which radiates a dark aura.`);
+  } else if (mastery == "assassin") {
+    console.log(`
+       /\\
+      //\\\\
+     //  \\\\
+ ^   \\\\  //   ^
+/ \\   )  (   / \\
+) (   )  (   ) (
+\\  \\_/ /\\ \\_/  /
+ \\__  _)(_  __/
+    \\ \\  / /
+     ) \\/ (
+     | /\\ |
+     | )( |
+     | )( |
+     | \\/ |
+     )____(
+    /      \\
+    \\______/      
+      `);
+    console.log(`It seems to be two daggers, which radiate a dark aura.`);
+  } else {
+    console.log(`
+         _______________
+    ()==(              (@==()
+         '______________'|
+           |             |
+           |             |
+         __)_____________|
+    ()==(               (@==()
+         '--------------'
+`);
+    console.log(`It seems to be a scroll, which radiates a dark aura.`);
+  }
+  do {
+    decision = rls.question(`\nDo you pick up the item? (y/n)\n`).toLowerCase();
+  } while (decision !== "y" && decision !== "n");
+  if (decision == "y") {
+    switch (mastery) {
+      case "knight":
+        console.log(`You equip the dark blade.`);
+        console.log(`MAX Health -15`);
+        console.log(`Attack +5`);
+        player.health[1] -= 15;
+        player.attackType[1] += 5;
+        player.attackType[0] = "dark blade";
+        break;
+      case "assassin":
+        console.log(`You equip the dark daggers.`);
+        console.log(`MAX Health -10`);
+        console.log(`Attack +5`);
+        player.health[1] -= 10;
+        player.attackType[1] += 5;
+        player.attackType[0] = "dual dark daggers";
+
+        break;
+      case "wizard":
+        console.log(`You study the scroll of dark arts.`);
+        console.log(`MAX Health -5`);
+        console.log(`Attack +10`);
+        player.health[1] -= 5;
+        player.attackType[1] += 10;
+        player.attackType[0] = "dark magic blast";
+        break;
+    }
+    enterAnyKey();
+    console.log(`You feel the energy of your new weapon - you regain health.`);
+    player.health[0] = player.health[1];
+    console.log(`Health: ${player.health[0]}/${player.health[1]}`);
+  }
 }
 
 crossway();
