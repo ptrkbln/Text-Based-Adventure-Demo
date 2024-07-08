@@ -480,7 +480,6 @@ let isEnemyDefeated = false;
 let enemy = structuredClone(skeleton);
 
 function attack(enemyObject) {
-  // potion use
   this.counter++;
   if (
     (this.type === "physical" && this.counter >= 1) ||
@@ -614,38 +613,9 @@ a8"    \`Y88 a8P_____88 ""     \`Y8   88    88P'    "8a
 \`"8bbdP"Y8  \`"Ybbd8"' \`"8bbdP"Y8   "Y888 88       88  
 `);
   console.log(`********************** YOU DIED **********************`);
-  rls.question(`(Enter any key to continue...)`);
-  console.log(` 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    `); // alternative to console.clear()
   if (player.inventory.includes("resurrection ankh")) {
+    enterAnyKey();
+    console.clear();
     console.log(`
         ...
     What's this???
@@ -672,7 +642,11 @@ a8"    \`Y88 a8P_____88 ""     \`Y8   88    88P'    "8a
   
   You are safe again.`);
     player.inventory.splice(player.inventory.indexOf("resurrection ankhh"), 1);
+    enterAnyKey();
+    console.clear();
   } else {
+    enterAnyKey();
+    console.clear();
     console.log(`Your adventure ends here, traveler.`);
     console.log(`
               ...
@@ -762,8 +736,6 @@ if (isEnemyDefeated === true) {
     console.clear();
   }
 }
-
-// if not enter or run continue out of the cabin
 
 console.log(`
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢛⡿⠛⠛⠛⠛⠛⠛⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
@@ -984,7 +956,7 @@ function goRight() {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
       `);
     console.log(`How is that possible?? It definitely stinks of magic!`);
-    console.log(`You look around and in the distance you see a silhouette...`);
+    console.log(`In the distance you see a silhouette...`);
     console.log(
       `However for now we don't have a choice, we need to go back...`
     );
@@ -1167,6 +1139,8 @@ You feel a dark aura surrounding you...`);
     decision = rls.question(`\nDo you pick up the item? (y/n)\n`).toLowerCase();
   } while (decision !== "y" && decision !== "n");
   if (decision == "y") {
+    enterAnyKey();
+    console.clear();
     switch (mastery) {
       case "knight":
         console.log(`You equip the dark blade.`);
