@@ -25,7 +25,7 @@
 
 My second project (as part of the Programming Basics module) was an interactive **text-based adventure demo** that captures the nostalgic charm of early *'90s games*, crafted entirely with **JavaScript**.
 
-> This adventure runs entirely in the console as a classic **Command Line Interface (CLI)** application, using `process.argv` to enhance the command-line experience and immerse players in a world of choice-driven storytelling.
+> This adventure runs entirely in the console as a classic **Command Line Interface (CLI)** application, using `process.argv` and `readline-sync` to enhance the command-line experience and immerse players in a world of choice-driven storytelling.
 
 **Features include:**
 - 🧙 Character Creation
@@ -38,7 +38,10 @@ My second project (as part of the Programming Basics module) was an interactive 
 Each decision shapes the story’s progression, making every journey unique and evoking the excitement of classic RPGs.
 
 #### How to Play
-Simply open the `main.js` file with Node and let the adventure begin:
-```bash
-node main.js
+1. First, install `readline-sync` to ensure everything runs smoothly:
+   ```bash
+   npm install readline-sync
+2. Once installed, open the main.js file with Node and let the adventure begin:
+   ```bash
+   node main.js
 
