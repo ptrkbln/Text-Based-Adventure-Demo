@@ -23,7 +23,7 @@
 
 ## 🎮 Text-Based Adventure Demo
 
-My second project was an interactive **text-based adventure demo** that captures the nostalgic charm of early *'90s games*, crafted entirely with **JavaScript**.
+My second project (as part of the Programming Basics module) was an interactive **text-based adventure demo** that captures the nostalgic charm of early *'90s games*, crafted entirely with **JavaScript**.
 
 > This adventure runs entirely in the console as a classic **Command Line Interface (CLI)** application, using `process.argv` to enhance the command-line experience and immerse players in a world of choice-driven storytelling.
 
